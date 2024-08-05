@@ -1,6 +1,6 @@
 # PalmMind PDF Chatbot
 
-This project is a chatbot that takes multiple PDF files as inputs and answers questions based on the content of the PDFs. It uses Streamlit for the user interface and LangChain along with Gemini/other LLMs for processing and generating responses.
+This project is a chatbot that takes multiple PDF files as inputs and answers questions based on the content of the PDFs. It uses Streamlit for the user interface and LangChain along with OpenAI LLMs for processing and generating responses.
 
 ## Features
 
@@ -30,6 +30,13 @@ This project is a chatbot that takes multiple PDF files as inputs and answers qu
     ```bash
     pip install -r requirements.txt
     ```
+    
+4. **Set up the OpenAI API key:**
+
+    - Create a `.env` file in the root directory of the project and add your OpenAI API key:
+
+    ```env
+    OPENAI_API_KEY=your_openai_api_key_here
 
 ## Usage
 
@@ -51,5 +58,4 @@ This project is a chatbot that takes multiple PDF files as inputs and answers qu
 
     - If you ask the chatbot to call you, it will prompt you to provide your name, phone number, and email.
 
-## File Structure
 
