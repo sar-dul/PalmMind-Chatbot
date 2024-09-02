@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/sardulojha/Desktop/ChatBot/venv"
+set -gx VIRTUAL_ENV "/Users/sardulojha/Desktop/Github/PalmMind-Chatbot/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
