@@ -1,26 +1,6 @@
 import langchain_helper as lch
 import streamlit as st
 
-# Initialize session state variables
-def initialize_session_state():
-    if 'db' not in st.session_state:
-        st.session_state.db = None
-    if 'submitted' not in st.session_state:
-        st.session_state.submitted = False
-        st.session_state.name = ''
-        st.session_state.phone_number = ''
-        st.session_state.email = ''
-    if 'conversation' not in st.session_state:
-        st.session_state.conversation = []
-
-# Set the page configuration for the Streamlit app
-def set_page_config():
-    st.set_page_config(page_title="Document Query Chatbot", page_icon="🤖", layout="wide")
-
-# Display the title of the app
-def display_title():
-    st.title("📄 Document Query Chatbot")
-    st.write("Upload your documents and ask any question about them.")
 
 # Handle file upload from the sidebar
 def handle_file_upload():
@@ -30,7 +10,7 @@ def handle_file_upload():
     if st.sidebar.button("Process Files"):
         if uploaded_files:
             with st.spinner("Processing files..."):
-                st.session_state.db = lch.create_vector_db(uploaded_files)
+                st.session_state.db = lch.extract_text_from_pdfs(uploaded_files)
             st.sidebar.success("Files processed successfully!")
         else:
             st.sidebar.warning("Please upload at least one PDF file.")
@@ -77,7 +57,7 @@ def handle_call_me_request():
 # Generate a response from the chatbot for the user's query
 def generate_response(user_input):
     with st.spinner("Generating response..."):
-        response = lch.get_response_from_query(st.session_state.db, user_input, 3)
+        response = lch.get_query_response(st.session_state.db, user_input)
         st.session_state.conversation.append({"role": "user", "content": user_input})
         st.session_state.conversation.append({"role": "chatbot", "content": response})
         st.text_area("Chatbot Response", value=response, height=200)
@@ -95,9 +75,25 @@ def display_conversation():
 
 # Main function to run the Streamlit app
 def main():
-    set_page_config()
-    display_title()
-    initialize_session_state()
+
+    # Initialize session state variables
+    if 'db' not in st.session_state:
+        st.session_state.db = None
+    if 'submitted' not in st.session_state:
+        st.session_state.submitted = False
+        st.session_state.name = ''
+        st.session_state.phone_number = ''
+        st.session_state.email = ''
+    if 'conversation' not in st.session_state:
+        st.session_state.conversation = []
+
+    # Set the page configuration for the Streamlit app
+    st.set_page_config(page_title="Document Query Chatbot", page_icon="🤖", layout="wide")
+
+    # Display the title of the app
+    st.title("📄 Document Query Chatbot")
+    st.write("Upload your documents and ask any question about them.")
+
     handle_file_upload()
 
     if st.session_state.db:
