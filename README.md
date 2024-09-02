@@ -30,13 +30,6 @@ This project is a chatbot that takes multiple PDF files as inputs and answers qu
     ```bash
     pip install -r requirements.txt
     ```
-    
-4. **Set up the OpenAI API key:**
-
-    - Create a `.env` file in the root directory of the project and add your OpenAI API key:
-
-    ```env
-    OPENAI_API_KEY=your_openai_api_key_here
 
 ## Usage
 
