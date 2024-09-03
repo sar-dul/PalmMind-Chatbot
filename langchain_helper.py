@@ -1,7 +1,7 @@
 import cohere
 from PyPDF2 import PdfReader
 
-# for using in your one machine use your own api key
+# Use your own API Key
 COHERE_API_KEY = "YOUR COHERE API KEY HERE"
 co = cohere.Client(COHERE_API_KEY)
 
