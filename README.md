@@ -9,6 +9,24 @@ This project is a chatbot that takes multiple PDF files as inputs and answers qu
 - Answer questions based on the content of the uploaded PDFs
 - Collect user information (Name, Phone Number, Email) upon request
 
+## Chatbot Interface
+
+Here is an example of the chatbot interface:
+
+![Chatbot](https://github.com/user-attachments/assets/21389500-8d0a-4373-bf2c-4b3243264e08)
+
+## "Call Me" Feature
+
+When users request the chatbot to call them, it prompts them for their name, phone number, and email. Below are images showing the process during the call request and after the request is completed:
+
+- **During the Call Request:**
+
+  ![Calling Request](https://github.com/user-attachments/assets/dc7dd0ff-d9d6-48af-ad83-8cee29aa0ca7)
+
+- **After the Call Request:**
+
+  ![After Call Request](https://github.com/user-attachments/assets/acade148-cf93-4039-8d35-03341e0f8d05)
+
 ## Installation
 
 1. **Clone the repository:**
@@ -51,4 +69,6 @@ This project is a chatbot that takes multiple PDF files as inputs and answers qu
 
     - If you ask the chatbot to call you, it will prompt you to provide your name, phone number, and email.
 
+## Additional Features
 
+- You can further extend the chatbot to handle more document types or integrate it with external APIs for more dynamic responses.
